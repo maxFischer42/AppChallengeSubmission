@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class unitCanvas : MonoBehaviour {
     /*
@@ -31,7 +32,14 @@ public class unitCanvas : MonoBehaviour {
 
     public string unitAbility;
 
+    public unitHealth HPScript;
 
+    [Header("Gameobjects")]
+    public Text Name;
+    public Text dmg;
+    public Text arm;
+    public Text abil;
+    public Scrollbar hp;
 
 
 
@@ -44,7 +52,16 @@ public class unitCanvas : MonoBehaviour {
         BasedOffID();
 
 	}
-	
+
+
+    private void FixedUpdate()
+    {
+        Name.text = unitName;
+        dmg.text = "Damage Amount: " + unitDamage.ToString();
+        arm.text = "Armor Amount: " + unitDefense.ToString();
+        abil.text = "Ability: " + unitAbility;
+        hp.size = HPScript.HP / unitHP;
+    }
 
 
     public void ClickMove()

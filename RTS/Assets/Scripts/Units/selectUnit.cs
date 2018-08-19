@@ -10,6 +10,12 @@ public class selectUnit : MonoBehaviour {
     public Canvas unitCanvas;
     public bool isSelected;
 
+    private void Awake()
+    {
+        cam = Camera.main.GetComponent<RTS_Camera>();
+
+    }
+
     public void OnMouseDown()
     {
         switch (isSelected)
