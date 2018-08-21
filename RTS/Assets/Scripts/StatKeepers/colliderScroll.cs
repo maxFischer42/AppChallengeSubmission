@@ -15,7 +15,7 @@ public class colliderScroll : boxSelectUnits
             {
                 par.unitArray[x] = hold[x];
             }
-            par.unitArray[unitArray.Length] = other;
+            par.unitArray[unitArray.Length] = other.gameObject;
         }
     }
 
