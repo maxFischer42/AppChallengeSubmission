@@ -19,6 +19,20 @@ public class surrender : MonoBehaviour {
 
     public void button()
     {
+       /* GameObject.Find("UI").SetActive(true);
+        GameObject.Find("Main CameraA").SetActive(true);
+        GameObject[] cams;
+        cams = GameObject.FindObjectsOfType<Camera>().gameObject;
+
+        for (int i = 0; i < cams.Length; i++)
+        {
+            if(cams[i].gameObject.name != "Main CameraA")
+            {
+                cams[i].gameObject.SetActive(false);
+            }
+        }
+        */
+
         data.pop = 0;
         if (!area.RD)
         {
@@ -29,7 +43,7 @@ public class surrender : MonoBehaviour {
         else if (!area.MF)
         {
             area.MF = true;
-            obj.area2 = true;
+            obj.area2 = true;         
             SceneManager.LoadScene("Territories");
         }
         else if (!area.RP)
