@@ -21,6 +21,12 @@ public class enemyCounter : MonoBehaviour {
         if (enemies <= 0)
         {
             data.pop = 0;
+            int i = data.GetComponent<areasKept>().difficulty;
+            if(i < 5)
+            {
+                i++;
+                data.GetComponent<areasKept>().difficulty = i;
+            }
             SceneManager.LoadScene("Territories");
             
         }

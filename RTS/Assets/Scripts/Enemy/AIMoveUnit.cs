@@ -58,8 +58,12 @@ public class AIMoveUnit : MonoBehaviour {
 
     public GameObject FindTarget()
     {
-        int a = Random.Range(0, decideRange);
-        GameObject i = playerUnits[a];
-        return i;
+        if (playerUnits.Length > 0)
+        {
+            int a = Random.Range(0, decideRange);
+            GameObject i = playerUnits[a];
+            return i;
+        }
+        return null;
     }
 }

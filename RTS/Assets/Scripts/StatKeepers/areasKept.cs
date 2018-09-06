@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class areasKept : MonoBehaviour {
 
+    public int difficulty = 0;
+ 
     public bool RD;
     public bool MF;
     public bool RP;
