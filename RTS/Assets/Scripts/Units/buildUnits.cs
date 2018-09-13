@@ -7,7 +7,7 @@ public class buildUnits : MonoBehaviour {
 
     public GameObject ObjectToMake;
     public GameObject DataHolder;
-    public Vector3[] placeToSpawn;
+    public Transform[] placeToSpawn;
     public float timerInBetween;
     private float timer;
 
@@ -26,7 +26,7 @@ public class buildUnits : MonoBehaviour {
             {
                 DataHolder.GetComponent<purchases>().pop++;
                     timer = 0;
-                GameObject newUnit = (GameObject)Instantiate(ObjectToMake, placeToSpawn[Random.Range(0, placeToSpawn.Length - 1)], Quaternion.identity);
+                GameObject newUnit = (GameObject)Instantiate(ObjectToMake, placeToSpawn[Random.Range(0, placeToSpawn.Length - 1)].position, Quaternion.identity);
                 newUnit.transform.parent = null;
             }
         }

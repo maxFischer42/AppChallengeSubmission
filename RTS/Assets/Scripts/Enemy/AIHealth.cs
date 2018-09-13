@@ -13,4 +13,11 @@ public class AIHealth : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    private void OnParticleTrigger()
+    {
+        
+    }
+
+
 }

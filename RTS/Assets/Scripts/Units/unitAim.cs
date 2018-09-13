@@ -8,6 +8,10 @@ public class unitAim : MonoBehaviour {
     public GameObject target;
     public float rotateSpeed;
     public unitFire fireScript;
+    public Animator anim;
+    private Vector3 prevPos;
+
+    public GameObject par;
 
 
 	
@@ -15,14 +19,29 @@ public class unitAim : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(target)
+        if(prevPos != unitMain.transform.position)
         {
+            anim.SetBool("firing", false);
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("firing", true);
+            anim.SetBool("isWalking", false);
+        }
+
+
+
+        if (target)
+        {
+            anim.SetBool("firing", true);
+            anim.SetBool("isWalking", false);
             float step = rotateSpeed * Time.deltaTime;
             Vector3 targetDir = target.transform.position - unitMain.transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
             unitMain.transform.rotation = Quaternion.LookRotation(newDir);
         }
-
+        prevPos = unitMain.transform.position;
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -32,6 +51,7 @@ public class unitAim : MonoBehaviour {
         {
             target = other.gameObject;
             fireScript.enable = true;
+            par.SetActive(true);
         }
     }
     private void OnTriggerStay(Collider other)
@@ -41,6 +61,7 @@ public class unitAim : MonoBehaviour {
         {
             target = other.gameObject;
             fireScript.enable = true;
+            par.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -50,6 +71,7 @@ public class unitAim : MonoBehaviour {
         {
             target = null;
             fireScript.enable = false;
+            par.SetActive(false);
         }
     }
 }

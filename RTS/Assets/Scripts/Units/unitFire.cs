@@ -14,6 +14,12 @@ public class unitFire : MonoBehaviour {
     private Ray beam;
     public GameObject particle;
 
+    private void OnDisable()
+    {
+        particle.SetActive(false);
+    }
+
+
     // Use this for initialization
     void Start () {
 		
@@ -25,8 +31,7 @@ public class unitFire : MonoBehaviour {
         if(enable)
         {
             
-            if (loaded)
-            {
+            
 
 
                 RaycastHit hit;
@@ -45,10 +50,6 @@ public class unitFire : MonoBehaviour {
                     if (hit.collider.tag == "Enemy")
                     {
                         hit.collider.GetComponent<AIHealth>().HP -= damage;
-                        if(hit.collider.GetComponent<AIHealth>().HP <= 0 || hit.collider.gameObject == null)
-                        {
-                            enable = false;
-                        }
                         
                         
                         
@@ -58,25 +59,10 @@ public class unitFire : MonoBehaviour {
 
                 
 
-
-            }
-            else
-            {
-                beam.origin = Vector3.zero;
-                currentTimer += Time.deltaTime;
-                if (currentTimer > 0.1)
-                {
-                    rend.enabled = false;
-                    particle.SetActive(false);
-                }
-
-                if (currentTimer >= reloadCooldown)
-                {
-                    currentTimer = 0;
-                    loaded = true;
-                    
-                }
-            }
+            
+            
+                
+            
 
 
         }
