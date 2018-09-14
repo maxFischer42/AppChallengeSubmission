@@ -137,7 +137,7 @@ public class purchases : boolsToKeep {
         if (iron >= 10)
         {
             iron -= 10;
-            maxpop += 10;
+            maxpop += 5;
             return true;
         }
         return false;

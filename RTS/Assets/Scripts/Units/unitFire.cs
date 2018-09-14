@@ -11,13 +11,19 @@ public class unitFire : MonoBehaviour {
     public float reloadCooldown;
     public float currentTimer;
     public bool enable;
-    private Ray beam;
-    public GameObject particle;
+    public Transform dir;
 
-    private void OnDisable()
-    {
-        particle.SetActive(false);
-    }
+    public GameObject hitObject;
+
+    public Transform target;
+
+    public unitAim aim;
+
+    public GameObject muzzleFlashObject;
+
+    Ray beam;
+
+
 
 
     // Use this for initialization
@@ -28,44 +34,70 @@ public class unitFire : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(enable)
+        RaycastHit hit;
+        
+
+        if (enable)
         {
             
+            beam.origin = transform.position;
+
+            rend.SetPosition(0, beam.origin);
             
 
+            Vector3 fwd = target.position - transform.position;
+            if (Physics.Raycast(transform.position, fwd, out hit))
+            {
 
-                RaycastHit hit;
-                beam.origin = transform.position;
-                rend.SetPosition(0, beam.origin);
 
-                
-                Vector3 fwd = transform.TransformDirection(Vector3.forward);
-                if(Physics.Raycast(transform.position,fwd, out hit))
+                //rend.enabled = true;
+                Debug.DrawLine(beam.origin, hit.point, Color.red);
+                rend.SetPosition(1, hit.point);
+
+
+
+
+
+
+                if (hit.collider.tag == "Enemy")
                 {
-                    rend.enabled = true;
-                    particle.SetActive(true);
-                    loaded = false;
-                    Debug.DrawLine(beam.origin, hit.point, Color.red);
-                    rend.SetPosition(1, hit.point);
-                    if (hit.collider.tag == "Enemy")
-                    {
-                        hit.collider.GetComponent<AIHealth>().HP -= damage;
-                        
-                        
-                        
-                    }
+                    GameObject aa = (GameObject)Instantiate(hitObject, hit.point,Quaternion.identity);
+                    Destroy(aa, 4f);
+                    GameObject muzzle = (GameObject)Instantiate(muzzleFlashObject, transform);
+                    Destroy(muzzle, 0.15f);
+                    hit.collider.GetComponent<AIHealth>().HP -= damage;
+                    enable = false;
                 }
-                
-
-                
-
-            
-            
-                
-            
-
-
+                hit = new RaycastHit();
+                beam = new Ray();
+            }
         }
+        else
+        {
+            currentTimer += Time.deltaTime;
+            if(currentTimer >= reloadCooldown)
+            {
+                currentTimer = 0;
+                enable = true;
+            }
+        }
+        }
+        
+                
+
+                
+
+            
+            
+                
+            
+
+
+        
 		
 	}
-}
+
+
+
+
+

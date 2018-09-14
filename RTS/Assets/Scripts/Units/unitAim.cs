@@ -11,7 +11,6 @@ public class unitAim : MonoBehaviour {
     public Animator anim;
     private Vector3 prevPos;
 
-    public GameObject par;
 
 
 	
@@ -50,8 +49,9 @@ public class unitAim : MonoBehaviour {
         if(other.gameObject.tag == "Enemy")
         {
             target = other.gameObject;
-            fireScript.enable = true;
-            par.SetActive(true);
+            fireScript.enabled = true;
+
+            //par.SetActive(true);
         }
     }
     private void OnTriggerStay(Collider other)
@@ -60,8 +60,8 @@ public class unitAim : MonoBehaviour {
         if (other.gameObject.tag == "Enemy")
         {
             target = other.gameObject;
-            fireScript.enable = true;
-            par.SetActive(true);
+            fireScript.enabled = true;
+            //par.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -70,8 +70,9 @@ public class unitAim : MonoBehaviour {
         if (other.gameObject.tag == "Enemy")
         {
             target = null;
-            fireScript.enable = false;
-            par.SetActive(false);
+            fireScript.enabled = false;
+
+            //par.SetActive(false);
         }
     }
 }
