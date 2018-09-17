@@ -31,6 +31,8 @@ public class attackers : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if (SceneManager.GetActiveScene().name != "Territories")
+            return;
 		if (currentTarget == 0){
             currentTarget = Random.Range(chanceTime.x, chanceTime.y);
         }

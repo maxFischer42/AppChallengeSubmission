@@ -32,6 +32,10 @@ public class checkBuilt : MonoBehaviour {
                 if (!data.MFTrainingFacility)
                     A();
                 break;
+            case "RCTrain":
+                if (!data.RCTrainingFacility)
+                    A();
+                break;
         }
 	}
 
