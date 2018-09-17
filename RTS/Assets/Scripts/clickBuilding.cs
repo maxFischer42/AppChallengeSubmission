@@ -6,10 +6,14 @@ public class clickBuilding : MonoBehaviour
 {
 
     public selectBuilding script;
+    public dontSelect dont;
 
     private void OnMouseDown()
     {
-        script.Call();
+        if (!dont.boolean)
+        {
+            script.Call();
+        }
     }
 
 }

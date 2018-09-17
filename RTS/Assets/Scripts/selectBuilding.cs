@@ -16,6 +16,7 @@ public class selectBuilding : MonoBehaviour {
     public int[] buildingID;
     public Sprite[] buildingImage;
 
+    public dontSelect dontSel;
 
 
 
@@ -37,6 +38,7 @@ public class selectBuilding : MonoBehaviour {
         NewCamera.SetActive(true);
         CanvasToDisable.SetActive(false);
         Canvas.enabled = true;
+        dontSel.boolean = true;
     }
 
     public void Return()
@@ -45,5 +47,6 @@ public class selectBuilding : MonoBehaviour {
         NewCamera.SetActive(false);
         CanvasToDisable.SetActive(true);
         Canvas.enabled = false;
+        dontSel.boolean = false;
     }
 }

@@ -28,6 +28,10 @@ public class checkBuilt : MonoBehaviour {
                 if (!data.RDFoodProcCentre)
                     A();
                 break;
+            case "MFTrain":
+                if (!data.MFTrainingFacility)
+                    A();
+                break;
         }
 	}
 
