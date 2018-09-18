@@ -36,6 +36,14 @@ public class checkBuilt : MonoBehaviour {
                 if (!data.RCTrainingFacility)
                     A();
                 break;
+            case "MFGro":
+                if (!data.MFGroundMechFactory)
+                    A();
+                break;
+            case "MFGround":
+                if (!data.MFGroundMechFactory)
+                    A();
+                break;
         }
 	}
 

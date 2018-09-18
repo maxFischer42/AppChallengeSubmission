@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NameStatKeeper : MonoBehaviour {
     public string[] nameIDS = { "Recruit", "Rifleman", "Sniper", "Tank", "Drone", "Exosuit Rifleman", "Exosuit Tank", "Basic Mech", "Quadruped Mech", "Railgun Cannon", "Flying Mech Mark I", "Flying Mech Mark II" };
-    public float[] damageIDS = {3,5,7,4,2,7,6,8,12,25,13,15};
+    public float[] damageIDS = {3,5,7,4,2,7,6,15,12,25,13,15};
     public float[] healthIDS = {15,20,18,30,10,25,45,80,120,400,250,450};
     public float[] defIDS = {0,0,0,3,0,2,5,5,6,4,4,6};
     public string[] abilityIDS = {"The basic footsoldier.",

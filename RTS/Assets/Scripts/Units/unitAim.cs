@@ -12,6 +12,9 @@ public class unitAim : MonoBehaviour {
     private Vector3 prevPos;
 
 
+    public bool isMech;
+    public unitFire fireScript2;
+
 
 	
 	
@@ -51,6 +54,11 @@ public class unitAim : MonoBehaviour {
             target = other.gameObject;
             fireScript.enabled = true;
 
+            if(isMech)
+            {
+                fireScript2.enabled = true;
+            }
+
             //par.SetActive(true);
         }
     }
@@ -61,6 +69,11 @@ public class unitAim : MonoBehaviour {
         {
             target = other.gameObject;
             fireScript.enabled = true;
+
+            if (isMech)
+            {
+                fireScript2.enabled = true;
+            }
             //par.SetActive(true);
         }
     }
@@ -71,6 +84,11 @@ public class unitAim : MonoBehaviour {
         {
             target = null;
             fireScript.enabled = false;
+
+            if (isMech)
+            {
+                fireScript2.enabled = false;
+            }
 
             //par.SetActive(false);
         }
