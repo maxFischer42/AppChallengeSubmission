@@ -10,15 +10,17 @@ public class AIMoveUnit : MonoBehaviour {
     public GameObject currentTarget;
     public int difficulty;
     public float timeDiff;
-    private float timer;
+    public float timer;
     public int decideRange;
 
 	// Gather all of the positions of the player's units
 	void Awake ()
     {
-        AIUnits = GameObject.FindGameObjectsWithTag("AI");
+        AIUnits = GameObject.FindGameObjectsWithTag("Enemy");
         playerUnits = GameObject.FindGameObjectsWithTag("Player");
-	}
+        currentTarget = GameObject.FindGameObjectsWithTag("Player")[0];
+
+    }
 	
 	// Update is called once per frame
     //Wait specified amounts of time to
@@ -31,20 +33,19 @@ public class AIMoveUnit : MonoBehaviour {
         float i = timeDiff / difficulty;
         
 
-        if(currentTarget)
+        if(currentTarget.GetComponent<unitHealth>().HP > 0)
         {
-            Debug.Log("Target Exists");
             for (int a = 0; a < AIUnits.Length;a++)
             {
-                Debug.Log("Target changed");
                 AIUnits[a].GetComponent<NavMeshAgent>().destination = currentTarget.transform.position;
+                Debug.Log("New Target = " + currentTarget);
                
             }
         }
 
         if (timer >= i)
         {
-            if (currentTarget)
+            if (currentTarget.GetComponent<unitHealth>().HP > 0 || currentTarget == null)
             {
                 return;
             }
