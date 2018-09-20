@@ -33,15 +33,7 @@ public class AIMoveUnit : MonoBehaviour {
         float i = timeDiff / difficulty;
         
 
-        if(currentTarget.GetComponent<unitHealth>().HP > 0)
-        {
-            for (int a = 0; a < AIUnits.Length;a++)
-            {
-                AIUnits[a].GetComponent<NavMeshAgent>().destination = currentTarget.transform.position;
-                Debug.Log("New Target = " + currentTarget);
-               
-            }
-        }
+        
 
         if (timer >= i)
         {
@@ -54,6 +46,16 @@ public class AIMoveUnit : MonoBehaviour {
                 currentTarget = FindTarget();
             }
             timer = 0f;
+        }
+
+        if (currentTarget.GetComponent<unitHealth>().HP > 0)
+        {
+            for (int a = 0; a < AIUnits.Length; a++)
+            {
+                AIUnits[a].GetComponent<NavMeshAgent>().destination = currentTarget.transform.position;
+                Debug.Log("New Target = " + currentTarget);
+
+            }
         }
     }
 
