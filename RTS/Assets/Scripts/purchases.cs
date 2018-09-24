@@ -494,11 +494,9 @@ public class purchases : boolsToKeep {
 
     private void FixedUpdate()
     {
-        foodDis.text = "Food: " + food;
         ironDis.text = "Iron: " + iron;
         coppDis.text = "Copper: " + copper;
         uranDis.text = "Uranium: " + uranium;
-        popDis.text = "Population: " + pop;
 
     }
 

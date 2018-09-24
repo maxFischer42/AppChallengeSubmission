@@ -26,7 +26,6 @@ public class holdOverDisplay : MonoBehaviour {
     display.SetActive(true);
         IronAmount.text = "Iron: " + Iron;
         CopperAmount.text = "Copper: " + Copper;
-        FoodAmount.text = "Food: " + Food;
         UraniumAmount.text = "Uranium: " + Uranium;
     }
 

@@ -29,6 +29,7 @@ public class AIMoveUnit : MonoBehaviour {
 	void Update ()
     {
         playerUnits = GameObject.FindGameObjectsWithTag("Player");
+        AIUnits = GameObject.FindGameObjectsWithTag("Enemy");
         timer += Time.deltaTime;
         float i = timeDiff / difficulty;
         
