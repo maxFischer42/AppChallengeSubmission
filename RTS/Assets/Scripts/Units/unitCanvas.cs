@@ -67,7 +67,13 @@ public class unitCanvas : MonoBehaviour {
     public void ClickMove()
     {
         moveUnitCanvas.SetActive(true);
+        gameObject.GetComponent<Canvas>().enabled = false;
         sel.OnMouseDown();
+    }
+
+    public void ClickDeselect()
+    {
+        gameObject.GetComponent<Canvas>().enabled = false;
     }
 
     /*

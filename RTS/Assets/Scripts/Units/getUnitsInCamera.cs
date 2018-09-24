@@ -11,7 +11,7 @@ public class getUnitsInCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetMouseButtonDown(1))
+		if(Input.GetButtonDown("Jump"))
         {
             units = GameObject.FindGameObjectsWithTag("Player");
             allUnits.GetComponent<moveGroup>().units = units;

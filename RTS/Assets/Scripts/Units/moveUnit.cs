@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class moveUnit : MonoBehaviour {
 
     public Transform unitLocation;
-    public GameObject particle;
+    //public GameObject particle;
     public NavMeshAgent nav;
     public float distance = 50f;
     public Animator anim;
@@ -29,8 +29,8 @@ public class moveUnit : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance))
         {
-            GameObject aa = (GameObject)Instantiate(particle, hit.point, Quaternion.identity);
-            Destroy(aa, 4.5f);
+           // GameObject aa = (GameObject)Instantiate(particle, hit.point, Quaternion.identity);
+           // Destroy(aa, 4.5f);
             anim.SetBool("isWalking", true);
             nav.SetDestination(hit.point);
             gameObject.SetActive(false);
