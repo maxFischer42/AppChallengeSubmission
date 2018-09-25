@@ -82,6 +82,12 @@ public class attackers : MonoBehaviour {
 
     public void startLevel()
     {
+        Camera[] list = GameObject.FindObjectsOfType<Camera>();
+        for (int i = 0; i < list.Length; i++)
+        {
+            list[i].enabled = false;
+        }
+        GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
         battleCanvas.enabled = false;
         SceneManager.LoadScene(levelTarget);
         dontDestroy.SetActive(false);
