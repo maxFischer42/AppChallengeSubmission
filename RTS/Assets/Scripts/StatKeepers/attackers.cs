@@ -15,6 +15,8 @@ public class attackers : MonoBehaviour {
     public float timerObject;
     public float currentTarget;
 
+    public GameObject dis;
+
     public Canvas battleCanvas;
     public string levelTarget;
 
@@ -49,6 +51,7 @@ public class attackers : MonoBehaviour {
 
     void InitiateBattle()
     {
+        dis.SetActive(false);
         timerObject = 0;
         Time.timeScale = 0;
         currentTarget = 0;
@@ -82,14 +85,16 @@ public class attackers : MonoBehaviour {
 
     public void startLevel()
     {
-        Camera[] list = GameObject.FindObjectsOfType<Camera>();
-        for (int i = 0; i < list.Length; i++)
-        {
-            list[i].enabled = false;
-        }
-        GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
+        dis.SetActive(false);
+        /* Camera[] list = GameObject.FindObjectsOfType<Camera>();
+         for (int i = 0; i < list.Length; i++)
+         {
+             list[i].enabled = false;
+         }
+         GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;*/
         battleCanvas.enabled = false;
         SceneManager.LoadScene(levelTarget);
+        dis.SetActive(true);
         dontDestroy.SetActive(false);
         Time.timeScale = 1;
     }

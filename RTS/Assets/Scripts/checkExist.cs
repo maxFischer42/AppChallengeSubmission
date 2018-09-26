@@ -5,6 +5,7 @@ using UnityEngine;
 public class checkExist : MonoBehaviour {
 
     public checkMe check;
+    public Canvas battleCanvas;
 
 	// Use this for initialization
 	void Start () {
@@ -14,9 +15,11 @@ public class checkExist : MonoBehaviour {
         }
         else
         {
-            check.truefalse = true;
+            
+            check.truefalse = true;           
         }
 	}
-	
+
+
 
 }
