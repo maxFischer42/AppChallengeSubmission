@@ -14,9 +14,11 @@ public class getUnitsInCamera : MonoBehaviour {
 		if(Input.GetButtonDown("Jump"))
         {
             units = GameObject.FindGameObjectsWithTag("Player");
-            allUnits.GetComponent<moveGroup>().units = units;
-            allUnits.enabled = true;
             
+            allUnits.enabled = true;
+            allUnits.GetComponent<moveGroup>().enabled = true;
+            allUnits.GetComponent<moveGroup>().units = units;
+
 
         }
 	}

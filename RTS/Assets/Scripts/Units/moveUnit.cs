@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class moveUnit : MonoBehaviour {
 
@@ -22,6 +23,10 @@ public class moveUnit : MonoBehaviour {
 
 
         if (Input.GetAxisRaw("Fire1") == 0)
+        {
+            return;
+        }
+        if(EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }

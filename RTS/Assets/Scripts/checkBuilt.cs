@@ -37,11 +37,11 @@ public class checkBuilt : MonoBehaviour {
                     A();
                 break;
             case "MFGro":
-                if (!data.MFGroundMechFactory)
+                if (!data.MPGroundMechFactory)
                     A();
                 break;
             case "MFGround":
-                if (!data.MFGroundMechFactory)
+                if (!data.MPGroundMechFactory)
                     A();
                 break;
         }

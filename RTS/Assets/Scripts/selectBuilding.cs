@@ -34,7 +34,7 @@ public class selectBuilding : MonoBehaviour {
 
     public void Call()
     {
-        MainCamera.SetActive(false);
+        MainCamera.GetComponent<Camera>().enabled = false;
         NewCamera.SetActive(true);
         CanvasToDisable.SetActive(false);
         Canvas.enabled = true;
@@ -43,7 +43,7 @@ public class selectBuilding : MonoBehaviour {
 
     public void Return()
     {
-        MainCamera.SetActive(true);
+        MainCamera.GetComponent<Camera>().enabled = true;
         NewCamera.SetActive(false);
         CanvasToDisable.SetActive(true);
         Canvas.enabled = false;

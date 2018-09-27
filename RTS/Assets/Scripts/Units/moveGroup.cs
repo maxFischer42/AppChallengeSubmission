@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class moveGroup : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class moveGroup : MonoBehaviour
     public GameObject particle;
     public NavMeshAgent[] nav;
     public float distance = 100f;
+    
 
 
     private void Update()
     {
         if (Input.GetAxisRaw("Fire1") == 0)
+        {
+            return;
+        }
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
@@ -29,6 +35,7 @@ public class moveGroup : MonoBehaviour
                 units[i].GetComponent<NavMeshAgent>().SetDestination(hit.point);                
             }
             gameObject.GetComponent<Canvas>().enabled = false;
+            enabled = false;
 
         }
     }
