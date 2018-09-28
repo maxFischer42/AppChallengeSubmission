@@ -26,10 +26,6 @@ public class moveUnit : MonoBehaviour {
         {
             return;
         }
-        if(EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance))

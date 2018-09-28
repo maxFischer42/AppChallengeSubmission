@@ -17,6 +17,7 @@ public class getUnitsInCamera : MonoBehaviour {
             
             allUnits.enabled = true;
             allUnits.GetComponent<moveGroup>().enabled = true;
+            allUnits.GetComponent<moveGroup>().isSelecting = true;
             allUnits.GetComponent<moveGroup>().units = units;
 
 

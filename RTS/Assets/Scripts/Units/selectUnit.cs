@@ -17,19 +17,25 @@ public class selectUnit : MonoBehaviour {
 
     public void OnMouseDown()
     {
-        switch (isSelected)
+
+        if (!GameObject.FindObjectOfType<moveGroup>().GetComponent<moveGroup>().isSelecting)
         {
-            case false:
-            cam.SetTarget(unitToZoom);
-                isSelected = true;
-                unitCanvas.enabled = true;
-                break;
-            case true:
-                cam.SetTarget(null);
-                isSelected = false;
-                unitCanvas.enabled = false;
-                break;
-    }
+
+
+            switch (isSelected)
+            {
+                case false:
+                    cam.SetTarget(unitToZoom);
+                    isSelected = true;
+                    unitCanvas.enabled = true;
+                    break;
+                case true:
+                    cam.SetTarget(null);
+                    isSelected = false;
+                    unitCanvas.enabled = false;
+                    break;
+            }
+        }
     }
 
 
