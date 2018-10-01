@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class purchases : boolsToKeep {
 
@@ -64,6 +65,8 @@ public class purchases : boolsToKeep {
     public Button RPLargeMechButton;
 
     public Button RPcommsButton;
+
+    public GameObject mechPrefab;
 
 
     // Use this for initialization
@@ -238,6 +241,8 @@ public class purchases : boolsToKeep {
             buyGround();
             MPGroundButton.interactable = false;
             MPGroundMechFactory = true;
+            MFGroundButton.interactable = false;
+            MFGroundMechFactory = true;
         }
     }
     public void MFGround()
@@ -247,6 +252,8 @@ public class purchases : boolsToKeep {
             buyGround();
             MFGroundButton.interactable = false;
             MFGroundMechFactory = true;
+            MPGroundButton.interactable = false;
+            MPGroundMechFactory = true;
         }
     }
     public void buyGround()
@@ -314,6 +321,7 @@ public class purchases : boolsToKeep {
     {
         iron -= 200;
         copper -= 200;
+        mechPrefab.GetComponent<NavMeshAgent>().speed *= 3f;
     }
 
     //purchasing iron

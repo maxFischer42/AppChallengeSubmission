@@ -9,6 +9,7 @@ public class cameraBox : MonoBehaviour
     public Rect marqueeRect;
     public List<GameObject> SelectableUnits;
     private Rect backupRect;
+    bool uiSel;
     private void OnGUI()
     {
         marqueeRect = new Rect(marqueeOrigin.x, marqueeOrigin.y, marqueeSize.x, marqueeSize.y);
@@ -42,7 +43,16 @@ public class cameraBox : MonoBehaviour
             backupRect.width = 0;
             backupRect.height = 0;
             marqueeSize = Vector2.zero;
+            if(!group.isSelecting && uiSel)
+            {
 
+                group.GetComponent<Canvas>().enabled = true;
+                group.isSelecting = true;
+                group.enabled = true;
+                uiSel = false;
+
+            }
+            
 
         }
         if (Input.GetMouseButton(0))
@@ -71,19 +81,23 @@ public class cameraBox : MonoBehaviour
                 if (!marqueeRect.Contains(_screenPoint) || !backupRect.Contains(_screenPoint))
                 {
                     unit.SendMessage("OnUnselected", SendMessageOptions.DontRequireReceiver);
+                    
                 }
                 if (marqueeRect.Contains(_screenPoint) || backupRect.Contains(_screenPoint))
                 {
+                    uiSel = true;
                     unit.SendMessage("OnSelected", SendMessageOptions.DontRequireReceiver);
-                    GameObject[] a = new GameObject[group.units.Length + 1];
+                    GameObject.Find("Main Camera").GetComponent<groupSelect>().OnSelected(unit);
+                   /* GameObject[] a = new GameObject[group.units.Length + 1];
                     for (int i = 0; i < group.units.Length; i++)
                     {
                         a[i] = group.units[i];
                     }
                     a[a.Length] = unit;
                     group.units = a;
-
+                    group.GetComponent<Canvas>().enabled = true;*/
                 }
+
                 
             }
             

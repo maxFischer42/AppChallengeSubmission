@@ -40,6 +40,8 @@ public class moveGroup : MonoBehaviour
             gameObject.GetComponent<Canvas>().enabled = false;
             isSelecting = false;
             enabled = false;
+            units = new GameObject[0];
+            nav = new NavMeshAgent[0];
 
         }
     }
