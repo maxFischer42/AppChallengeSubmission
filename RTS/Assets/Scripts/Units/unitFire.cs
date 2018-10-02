@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(AudioSource))]
 public class unitFire : MonoBehaviour {
 
     public int damage;
@@ -21,6 +23,8 @@ public class unitFire : MonoBehaviour {
 
     public GameObject muzzleFlashObject;
 
+    public AudioClip shotSound;
+    private AudioSource aud;
     Ray beam;
 
 
@@ -28,7 +32,8 @@ public class unitFire : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        aud = GetComponent<AudioSource>();
+        aud.volume = PlayerPrefs.GetFloat("Sound");
 	}
 	
 	// Update is called once per frame
@@ -61,6 +66,7 @@ public class unitFire : MonoBehaviour {
 
                 if (hit.collider.tag == "Enemy")
                 {
+                    aud.PlayOneShot(shotSound);
                     GameObject aa = (GameObject)Instantiate(hitObject, hit.point,Quaternion.identity);
                     Destroy(aa, 4f);
                     GameObject muzzle = (GameObject)Instantiate(muzzleFlashObject, transform);

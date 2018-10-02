@@ -8,6 +8,7 @@ public class surrender : MonoBehaviour {
     public areasKept area;
     public purchases data;
     public attackers obj;
+    public loadingIcon loadscript;
 
     private void Start()
     {
@@ -19,20 +20,19 @@ public class surrender : MonoBehaviour {
 
     public void button()
     {
-       /* GameObject.Find("UI").SetActive(true);
-        GameObject.Find("Main CameraA").SetActive(true);
-        GameObject[] cams;
-        cams = GameObject.FindObjectsOfType<Camera>().gameObject;
+        /* GameObject.Find("UI").SetActive(true);
+         GameObject.Find("Main CameraA").SetActive(true);
+         GameObject[] cams;
+         cams = GameObject.FindObjectsOfType<Camera>().gameObject;
 
-        for (int i = 0; i < cams.Length; i++)
-        {
-            if(cams[i].gameObject.name != "Main CameraA")
-            {
-                cams[i].gameObject.SetActive(false);
-            }
-        }
-        */
-
+         for (int i = 0; i < cams.Length; i++)
+         {
+             if(cams[i].gameObject.name != "Main CameraA")
+             {
+                 cams[i].gameObject.SetActive(false);
+             }
+         }
+         */
         data.pop = 0;
         if (!area.RD)
         {

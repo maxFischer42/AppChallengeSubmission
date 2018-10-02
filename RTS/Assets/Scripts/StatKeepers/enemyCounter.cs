@@ -7,6 +7,7 @@ public class enemyCounter : MonoBehaviour {
 
     public int enemies;
     public purchases data;
+    public loadingIcon load;
 
     private void Start()
     {

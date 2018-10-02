@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class skipIntro : MonoBehaviour {
 
+    public loadingIcon load;
 	
 	
 	// Update is called once per frame

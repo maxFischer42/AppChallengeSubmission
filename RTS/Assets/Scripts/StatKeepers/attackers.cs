@@ -24,6 +24,7 @@ public class attackers : MonoBehaviour {
 
     public GameObject speed;
 
+    public loadingIcon loadscript;
 
     private void Start()
     {
@@ -89,6 +90,7 @@ public class attackers : MonoBehaviour {
     public void startLevel()
     {
         speed.SetActive(true);
+
         dis.SetActive(false);
         /* Camera[] list = GameObject.FindObjectsOfType<Camera>();
          for (int i = 0; i < list.Length; i++)
