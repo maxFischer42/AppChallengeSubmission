@@ -137,9 +137,9 @@ public class purchases : boolsToKeep {
     }
     public bool PurchaseLivingQuarters()
     {
-        if (iron >= 10)
+        if (iron >= 150)
         {
-            iron -= 10;
+            iron -= 150;
             maxpop += 5;
             return true;
         }
@@ -349,9 +349,9 @@ public class purchases : boolsToKeep {
     }
     public bool PurchaseIron()
     {
-        if (iron >= 15)
+        if (iron >= 50)
         {
-            iron -= 15;
+            iron -= 50;
             gr.dailyIron += 75;
             return true;
         }
@@ -383,10 +383,10 @@ public class purchases : boolsToKeep {
     }
     public bool PurchaseCop()
     {
-        if (copper >= 15 && iron >= 25)
+        if (copper >= 50 && iron >= 50)
         {
-            iron -= 25;
-            copper -= 15;
+            iron -= 50;
+            copper -= 50;
             gr.dailyCopper += 75;
             return true;
         }
@@ -453,9 +453,9 @@ public class purchases : boolsToKeep {
     }
     public bool PurchaseUran()
     {
-        if (iron >= 2000)
+        if (iron >= 3500)
         {
-            iron -= 2000;
+            iron -= 3500;
             gr.dailyUranium += 50;
             return true;
         }

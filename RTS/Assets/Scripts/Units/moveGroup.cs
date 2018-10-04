@@ -17,6 +17,11 @@ public class moveGroup : MonoBehaviour
 
     private void Update()
     {
+
+        
+
+
+
         if (Input.GetAxisRaw("Fire1") == 0 || !isSelecting)
         {
             return;

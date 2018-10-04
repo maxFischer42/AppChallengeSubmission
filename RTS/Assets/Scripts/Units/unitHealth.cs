@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class unitHealth : MonoBehaviour {
 
@@ -18,6 +19,10 @@ public class unitHealth : MonoBehaviour {
             GameObject part = (GameObject)Instantiate(particle,spawntransform);
             Destroy(part, 7f);
             part.transform.parent = null;
+            GameObject.FindObjectOfType<moveGroup>().enabled = false;
+            GameObject.FindObjectOfType<moveGroup>().units = new GameObject[0];
+            GameObject.FindObjectOfType<moveGroup>().nav = new NavMeshAgent[0];
+            GameObject.FindObjectOfType<moveGroup>().GetComponentInParent<Canvas>().enabled = false;
             Destroy(gameObject);
         }
     }
