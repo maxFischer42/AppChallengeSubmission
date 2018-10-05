@@ -8,6 +8,7 @@ public class buttonLoadScee : MonoBehaviour {
 
     public void Pressbutton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(levelToLoad);
     }
 }

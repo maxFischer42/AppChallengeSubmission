@@ -9,6 +9,7 @@ public class loadOnActive : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        PlayerPrefs.SetInt("Sensitivity", 15);
         SceneManager.LoadScene(levelToLoad);
 	}
 
