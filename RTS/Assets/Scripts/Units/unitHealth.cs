@@ -19,8 +19,7 @@ public class unitHealth : MonoBehaviour {
             GameObject part = (GameObject)Instantiate(particle,spawntransform);
             Destroy(part, 7f);
             part.transform.parent = null;
-            GameObject.FindObjectOfType<moveGroup>().GetComponentInParent<Canvas>().enabled = false;
-            
+            GameObject.FindObjectOfType<moveGroup>().GetComponent<Canvas>().enabled = false;
             GameObject.FindObjectOfType<moveGroup>().isSelecting = false;
             GameObject.FindObjectOfType<moveGroup>().enabled = false;
             Destroy(gameObject);

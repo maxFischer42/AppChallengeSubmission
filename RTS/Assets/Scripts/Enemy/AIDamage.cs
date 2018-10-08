@@ -38,7 +38,7 @@ public class AIDamage : MonoBehaviour {
         if (timer >= timerCountTo)
         {
 
-            int total = damage -= target.armor;
+            int total = damage - target.armor;
             target.HP -= total;
         }
     }
